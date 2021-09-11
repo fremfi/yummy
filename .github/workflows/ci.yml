@@ -1,0 +1,50 @@
+name: ci
+on: [push]
+
+jobs:
+  build_ios:
+    name: build ios
+    runs-on: macos-11
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - name: Setup flutter
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: "2.2.3"
+          channel: "stable"
+      - name: Install dependancies
+        run: |
+          flutter pub get
+      - name: Analyze dart code
+        run: flutter test
+      - name: Run tests
+        run: flutter analyze .
+      - name: Build ios
+        run: flutter build ios --release --no-codesign --verbose
+  build_android:
+    name: build android
+    runs-on: macos-11
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - name: Setup flutter
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: "2.2.3"
+          channel: "stable"
+      - name: Install dependancies
+        run: |
+          flutter pub get
+      - name: Analyze dart code
+        run: flutter test
+      - name: Run tests
+        run: flutter analyze .
+      - name: Build android
+        run: flutter build apk --release --verbose
