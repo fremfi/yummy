@@ -1,3 +1,5 @@
+![build](https://github.com/fremfi/yummy/actions/workflows/ci.yml/badge.svg)
+
 # yummy
 
 Find the perfect recipes for your meals
