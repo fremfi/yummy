@@ -8,7 +8,7 @@ import 'package:yummy/infrastructure/recipe/recipe_service.dart';
 class InitialBinding implements Bindings {
   @override
   void dependencies() {
-    if (!kDebugMode) {
+    if (kDebugMode) {
       Get.put<RecipeService>(
         RecipeServiceImpl(recipeRepository: FakeRecipeRepositoryImpl()),
         permanent: true,

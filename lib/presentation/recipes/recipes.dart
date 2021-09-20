@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:yummy/routes/constants.dart';
+import 'package:yummy/application/recipes_controller.dart';
+import 'package:yummy/domain/recipe/recipe.dart';
+import 'package:yummy/presentation/recipes/widgets/recipe_card.dart';
 
 class RecipesScreen extends StatelessWidget {
   const RecipesScreen({Key? key}) : super(key: key);
@@ -10,17 +12,25 @@ class RecipesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Yummy'),
-        backgroundColor: Colors.transparent,
         foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
         elevation: 0,
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Get.toNamed(recipeDetailsRoute);
-          },
-          child: const Text('Go to details'),
-        ),
+      body: GetBuilder<RecipesController>(
+        init: RecipesController(),
+        builder: (recipesController) {
+          List<Recipe> recipes = recipesController.recipes;
+          bool isRecipeLoading = recipesController.isRecipesLoading;
+          return isRecipeLoading
+              ? const Center(child: CircularProgressIndicator())
+              : ListView(
+                  children: recipes
+                      .map(
+                        (Recipe recipe) => RecipeCard(recipe: recipe),
+                      )
+                      .toList(),
+                );
+        },
       ),
     );
   }

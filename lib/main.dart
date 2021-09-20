@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      key: const Key('Get Material App'),
       title: 'Yummy',
       initialBinding: InitialBinding(),
       theme: ThemeData(
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: recipesRoute,
       getPages: getGetPages(),
+      navigatorKey: Get.key,
     );
   }
 }
