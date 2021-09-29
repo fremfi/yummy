@@ -13,7 +13,7 @@ List<GetPage<dynamic>> getGetPages() {
     GetPage(
       name: recipeDetailsRoute,
       page: () => const RecipeDetailsScreen(),
-      transition: Transition.fadeIn,
+      transition: Transition.downToUp,
     ),
   ];
 }
