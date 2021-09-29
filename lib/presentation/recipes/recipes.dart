@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:yummy/application/recipes_controller.dart';
 import 'package:yummy/domain/recipe/recipe.dart';
 import 'package:yummy/presentation/recipes/widgets/recipe_card.dart';
+import 'package:yummy/routes/constants.dart';
 
 class RecipesScreen extends StatelessWidget {
   const RecipesScreen({Key? key}) : super(key: key);
@@ -26,7 +27,12 @@ class RecipesScreen extends StatelessWidget {
               : ListView(
                   children: recipes
                       .map(
-                        (Recipe recipe) => RecipeCard(recipe: recipe),
+                        (Recipe recipe) => RecipeCard(
+                          recipe: recipe,
+                          onClick: () {
+                            Get.toNamed(recipeDetailsRoute, arguments: recipe);
+                          },
+                        ),
                       )
                       .toList(),
                 );
