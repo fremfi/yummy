@@ -11,21 +11,52 @@ class FakeRecipeRepositoryImpl extends Fake implements RecipeRepository {
         imageUrl:
             "https://www.chelseasmessyapron.com/wp-content/uploads/2020/10/ORANGE-CHICKEN-6.jpg",
         description:
-            "This easy, saucy Orange Chicken can be on the table in 30 minutes or less! The citrusy sauce tastes just like Panda Express -- it's sweet and tangy with a touch of spice.",
-      ),
-      Recipe(
-        title: "Sheet Pan Sausage And Veggies",
-        imageUrl:
-            "https://www.chelseasmessyapron.com/wp-content/uploads/2016/09/Sausage-and-Veggies-2.jpg",
-        description:
-            "Sheet Pan Sausage and Veggies makes for the best simple, filling, and nutritious dinner with virtually no cleanup! A killer seasoning blend gets tossed with your favorite veggies and smoked sausage and roasted to perfection. Top with freshly grated Parmesan cheese and enjoy as is or over a cooked grain.",
-      ),
-      Recipe(
-        title: "Applebee's Chicken Salad",
-        imageUrl:
-            "https://www.chelseasmessyapron.com/wp-content/uploads/2021/07/Applebees-Chicken-Salad-5.jpeg",
-        description:
-            "This easy restaurant copycat Applebee's Chicken Salad combines romaine and coleslaw with crispy chicken, sliced almonds, crunchy chow mein noodles, sweet mandarin oranges, and an irresistible creamy & sweet dressing.",
+            "This easy, saucy Orange Chicken can be on the table in 30 minutes "
+            "or less! The citrusy sauce tastes just like Panda Express -- "
+            "it's sweet and tangy with a touch of spice.",
+        cookTimeMinutes: 12,
+        prepTimeMinutes: 18,
+        servings: 4,
+        ingredients: [
+          "1 pound (16 oz.) **frozen breaded chicken tenders**",
+          "2 tablespoons + 2 teaspoons **toasted sesame oil,** separated",
+          "2 tablespoons **minced garlic**",
+          "1 teaspoon **ginger paste**",
+          "1/2 teaspoon **red pepper flakes**",
+          "1/2 cup each: **white sugar, light brown sugar**",
+          "1/2 cup **white vinegar**",
+          "1-2 large **oranges** (1/2 cup juice & 1-2 teaspoons zest)",
+          "1/4 cup **regular soy sauce**",
+          "1/4 cup **cornstarch** mixed with 1/4 cup water",
+        ],
+        instructions: [
+          "**CHICKEN:** Start by preparing chicken tenders according to package "
+              "directions (We like air frying them best -- they're done "
+              "in about 11-12 minutes!). Let cool to warm and then cut into "
+              "bite-sized pieces and add to a large bowl.",
+          "**SAUCE:** Meanwhile, set a medium-sized pot over medium-high heat and "
+              "add 2 tablespoons of sesame oil. Once the oil begins to shimmer, "
+              "add garlic, ginger and red pepper flakes. Cook, stirring constantly "
+              "for 30 seconds. Then add in the brown sugar, white sugar,"
+              " and 1-2 teaspoons orange zest (zest is optional -- we love it, "
+              "but takes an extra minute, so you choose! Add more for a stronger "
+              "orange flavor and less for a milder taste). Stir to moisten the sugar "
+              "and then add in the orange juice. Stir until sugar is dissolved. "
+              "Then add in the vinegar and soy sauce. Stir to combine.",
+          "**THICKEN SAUCE:** In a separate small bowl, use a small whisk or fork to mix the "
+              "cornstarch and water until the mixture is completely smooth. "
+              "Pour all of this mixture into the sauce and stir. "
+              "Continue to cook the sauce until it thickens to the "
+              "consistency of syrup. Taste and adjust the sauce to personal "
+              "preference, adding more red pepper flakes for a spicier sauce "
+              "or a pinch of salt if needed.",
+          "**ENJOY:** Pour as much sauce as you'd like over the cut-up chicken pieces "
+              "(you may not want it all depending on how saucy or un-saucy "
+              "you prefer your meal). Drizzle the remaining 2 teaspoons "
+              "sesame oil on top of coated chicken. Gently toss and serve "
+              "immediately. We like to serve over cooked rice with sesame "
+              "seeds and thinly sliced green onions.",
+        ],
       ),
     ]);
   }

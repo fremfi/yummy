@@ -9,11 +9,22 @@ class Recipe {
   @JsonKey(name: "image_url")
   final String imageUrl;
   final String description;
+  final int prepTimeMinutes;
+  final int cookTimeMinutes;
+  final int servings;
+  final List<String> instructions;
+  final List<String> ingredients;
+
   Recipe({
     this.id,
     required this.title,
     required this.imageUrl,
     required this.description,
+    required this.prepTimeMinutes,
+    required this.cookTimeMinutes,
+    required this.servings,
+    required this.instructions,
+    required this.ingredients,
   });
 
   factory Recipe.fromJson(Map<String, dynamic> json) => _$RecipeFromJson(json);
