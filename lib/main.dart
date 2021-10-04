@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Yummy',
       initialBinding: InitialBinding(),
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
       ),
       initialRoute: recipesRoute,
       getPages: getGetPages(),
