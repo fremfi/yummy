@@ -12,31 +12,56 @@ class RecipesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Yummy'),
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
         elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: InkWell(
+                onTap: () {
+                  Get.toNamed(settingsRoute);
+                },
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Icon(
+                    Icons.settings,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
-      body: GetBuilder<RecipesController>(
-        init: RecipesController(),
-        builder: (recipesController) {
-          List<Recipe> recipes = recipesController.recipes;
-          bool isRecipeLoading = recipesController.isRecipesLoading;
-          return isRecipeLoading
-              ? const Center(child: CircularProgressIndicator())
-              : ListView(
-                  children: recipes
-                      .map(
-                        (Recipe recipe) => RecipeCard(
-                          recipe: recipe,
-                          onClick: () {
-                            Get.toNamed(recipeDetailsRoute, arguments: recipe);
-                          },
-                        ),
-                      )
-                      .toList(),
-                );
-        },
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: GetBuilder<RecipesController>(
+                init: RecipesController(),
+                builder: (recipesController) {
+                  List<Recipe> recipes = recipesController.recipes;
+                  bool isRecipeLoading = recipesController.isRecipesLoading;
+                  return isRecipeLoading
+                      ? const Center(child: CircularProgressIndicator())
+                      : ListView(
+                          children: recipes
+                              .map(
+                                (Recipe recipe) => RecipeCard(
+                                  recipe: recipe,
+                                  onClick: () {
+                                    Get.toNamed(recipeDetailsRoute,
+                                        arguments: recipe);
+                                  },
+                                ),
+                              )
+                              .toList(),
+                        );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

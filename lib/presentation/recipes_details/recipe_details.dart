@@ -15,6 +15,11 @@ class RecipeDetailsScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.black,
+            iconTheme: const IconThemeData(
+              color: Colors.white,
+            ),
             snap: true,
             floating: true,
             expandedHeight: 250.0,
@@ -49,23 +54,23 @@ class RecipeDetailsScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "PREP TIME: ${recipe.prepTimeMinutes} minutes",
+                          "${'prep time'.tr.toUpperCase()}: ${recipe.prepTimeMinutes} ${'minutes'.tr}",
                           style: const TextStyle(fontSize: 16),
                         ),
                         Text(
-                          "COOK TIME: ${recipe.cookTimeMinutes} minutes",
+                          "${'cook time'.tr.toUpperCase()}: ${recipe.cookTimeMinutes} ${'minutes'.tr}",
                           style: const TextStyle(fontSize: 16),
                         ),
                         Text(
-                          "SERVINGS: ${recipe.servings}",
+                          "${'servings'.tr.toUpperCase()}: ${recipe.servings}",
                           style: const TextStyle(fontSize: 16),
                         )
                       ],
                     ),
                     const SizedBox(height: 20),
-                    const Text(
-                      "INGREDIENTS",
-                      style: TextStyle(
+                    Text(
+                      "ingredients".tr.toUpperCase(),
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
@@ -83,9 +88,9 @@ class RecipeDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const Text(
-                      "INSTRUCTIONS",
-                      style: TextStyle(
+                    Text(
+                      "instructions".tr.toUpperCase(),
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
