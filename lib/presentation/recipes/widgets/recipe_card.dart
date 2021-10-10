@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:yummy/domain/recipe/recipe.dart';
 
@@ -57,6 +58,7 @@ class RecipeCard extends StatelessWidget {
                         recipe.title,
                         style: const TextStyle(
                           fontSize: 20,
+                          color: Color(0xFF444444),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -73,7 +75,7 @@ class RecipeCard extends StatelessWidget {
                             width: 10,
                           ),
                           Text(
-                            "${recipe.prepTimeMinutes + recipe.cookTimeMinutes} minutes",
+                            "${recipe.prepTimeMinutes + recipe.cookTimeMinutes} ${'minutes'.tr}",
                             style: const TextStyle(
                                 fontSize: 16, color: Colors.grey),
                           ),
