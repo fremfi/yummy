@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "654942302961",
+    "project_id": "yummy-fremfi-prod",
+    "storage_bucket": "yummy-fremfi-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654942302961:android:834d259e72b3928d04af50",
+        "android_client_info": {
+          "package_name": "com.yummy.yummy.prod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654942302961-ftd1em7pli1sgh6tua65251trhh1lg50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsCdzYB3gQas2MtWW0EGoDEMICI4S2rH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654942302961-ftd1em7pli1sgh6tua65251trhh1lg50.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "654942302961-3shdgo62a8oq3nirldvhvpc8alo0o6t3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yummy.yummy.prod"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

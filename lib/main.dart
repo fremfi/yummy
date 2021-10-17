@@ -1,5 +1,5 @@
-import 'dart:convert';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -10,14 +10,27 @@ import 'package:yummy/routes/get_pages.dart';
 
 import 'domain/internationalization.dart';
 import 'domain/settings/settings.dart';
+import 'domain/settings/settings_service.dart';
 import 'getx_initial_bindings.dart';
+import 'infrastructure/settings/settings_repository.dart';
+import 'infrastructure/settings/settings_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  Settings settings = prefs.getString('settings') != null
-      ? Settings.fromJson(jsonDecode(prefs.getString('settings')!))
-      : Settings(themeMode: ThemeMode.light, language: languages[0]);
+  var settingsService = SettingsServiceImpl(
+    settingsRepository: SettingsRepositoryImpl(
+      prefs: await SharedPreferences.getInstance(),
+    ),
+  );
+  Get.put<SettingsService>(
+    settingsService,
+    permanent: true,
+  );
+  Settings settings = settingsService.getSettings();
+
+  if (!kIsWeb) {
+    await Firebase.initializeApp();
+  }
   runApp(
     MyApp(settings: settings),
   );

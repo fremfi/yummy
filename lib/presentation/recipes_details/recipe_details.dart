@@ -68,47 +68,61 @@ class RecipeDetailsScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    Text(
-                      "ingredients".tr.toUpperCase(),
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                    if (recipe.ingredients.isNotEmpty)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "ingredients".tr.toUpperCase(),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Markdown(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            padding: EdgeInsets.zero,
+                            data: recipe.ingredients
+                                .map((x) => "- $x\n")
+                                .reduce((x, y) => "$x$y"),
+                            styleSheet: MarkdownStyleSheet(
+                              p: const TextStyle(fontSize: 16),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                        ],
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    Markdown(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      padding: EdgeInsets.zero,
-                      data: recipe.ingredients
-                          .map((x) => "- $x\n")
-                          .reduce((x, y) => "$x$y"),
-                      styleSheet: MarkdownStyleSheet(
-                        p: const TextStyle(fontSize: 16),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      "instructions".tr.toUpperCase(),
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Markdown(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      padding: EdgeInsets.zero,
-                      data: recipe.instructions
-                          .map((x) =>
-                              "${recipe.instructions.indexOf(x) + 1}. $x\n")
-                          .reduce((x, y) => "$x$y"),
-                      styleSheet: MarkdownStyleSheet(
-                        p: const TextStyle(fontSize: 16),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
+                    if (recipe.instructions.isNotEmpty)
+                      for (var key in recipe.instructions.keys)
+                        if (recipe.instructions[key]!.isNotEmpty)
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "instructions".tr.toUpperCase(),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              const SizedBox(height: 20),
+                              Markdown(
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                padding: EdgeInsets.zero,
+                                data: recipe.instructions[key]!
+                                    .map((x) =>
+                                        "${recipe.instructions[key]!.indexOf(x) + 1}. $x\n")
+                                    .reduce((x, y) => "$x$y"),
+                                styleSheet: MarkdownStyleSheet(
+                                  p: const TextStyle(fontSize: 16),
+                                ),
+                              ),
+                              const SizedBox(height: 20),
+                            ],
+                          )
                   ],
                 ),
               ),

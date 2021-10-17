@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:yummy/application/settings_controller.dart';
 import 'package:yummy/presentation/recipes/recipes.dart';
 import 'package:yummy/presentation/recipes_details/recipe_details.dart';
 import 'package:yummy/presentation/settings/settings.dart';
@@ -20,6 +21,11 @@ List<GetPage<dynamic>> getGetPages() {
       name: settingsRoute,
       page: () => const SettingsScreen(),
       transition: Transition.fade,
+      binding: BindingsBuilder(
+        () {
+          Get.put<SettingsController>(SettingsController());
+        },
+      ),
     ),
   ];
 }

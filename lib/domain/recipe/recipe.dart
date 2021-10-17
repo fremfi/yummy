@@ -11,8 +11,8 @@ class Recipe {
   final String description;
   final int prepTimeMinutes;
   final int cookTimeMinutes;
-  final int servings;
-  final List<String> instructions;
+  final String servings;
+  final Map<String, List<String>> instructions;
   final List<String> ingredients;
 
   Recipe({

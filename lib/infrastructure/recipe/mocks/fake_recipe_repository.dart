@@ -16,7 +16,7 @@ class FakeRecipeRepositoryImpl extends Fake implements RecipeRepository {
             "it's sweet and tangy with a touch of spice.",
         cookTimeMinutes: 12,
         prepTimeMinutes: 18,
-        servings: 4,
+        servings: "4",
         ingredients: [
           "1 pound (16 oz.) **frozen breaded chicken tenders**",
           "2 tablespoons + 2 teaspoons **toasted sesame oil,** separated",
@@ -29,34 +29,36 @@ class FakeRecipeRepositoryImpl extends Fake implements RecipeRepository {
           "1/4 cup **regular soy sauce**",
           "1/4 cup **cornstarch** mixed with 1/4 cup water",
         ],
-        instructions: [
-          "**CHICKEN:** Start by preparing chicken tenders according to package "
-              "directions (We like air frying them best -- they're done "
-              "in about 11-12 minutes!). Let cool to warm and then cut into "
-              "bite-sized pieces and add to a large bowl.",
-          "**SAUCE:** Meanwhile, set a medium-sized pot over medium-high heat and "
-              "add 2 tablespoons of sesame oil. Once the oil begins to shimmer, "
-              "add garlic, ginger and red pepper flakes. Cook, stirring constantly "
-              "for 30 seconds. Then add in the brown sugar, white sugar,"
-              " and 1-2 teaspoons orange zest (zest is optional -- we love it, "
-              "but takes an extra minute, so you choose! Add more for a stronger "
-              "orange flavor and less for a milder taste). Stir to moisten the sugar "
-              "and then add in the orange juice. Stir until sugar is dissolved. "
-              "Then add in the vinegar and soy sauce. Stir to combine.",
-          "**THICKEN SAUCE:** In a separate small bowl, use a small whisk or fork to mix the "
-              "cornstarch and water until the mixture is completely smooth. "
-              "Pour all of this mixture into the sauce and stir. "
-              "Continue to cook the sauce until it thickens to the "
-              "consistency of syrup. Taste and adjust the sauce to personal "
-              "preference, adding more red pepper flakes for a spicier sauce "
-              "or a pinch of salt if needed.",
-          "**ENJOY:** Pour as much sauce as you'd like over the cut-up chicken pieces "
-              "(you may not want it all depending on how saucy or un-saucy "
-              "you prefer your meal). Drizzle the remaining 2 teaspoons "
-              "sesame oil on top of coated chicken. Gently toss and serve "
-              "immediately. We like to serve over cooked rice with sesame "
-              "seeds and thinly sliced green onions.",
-        ],
+        instructions: {
+          "default": [
+            "**CHICKEN:** Start by preparing chicken tenders according to package "
+                "directions (We like air frying them best -- they're done "
+                "in about 11-12 minutes!). Let cool to warm and then cut into "
+                "bite-sized pieces and add to a large bowl.",
+            "**SAUCE:** Meanwhile, set a medium-sized pot over medium-high heat and "
+                "add 2 tablespoons of sesame oil. Once the oil begins to shimmer, "
+                "add garlic, ginger and red pepper flakes. Cook, stirring constantly "
+                "for 30 seconds. Then add in the brown sugar, white sugar,"
+                " and 1-2 teaspoons orange zest (zest is optional -- we love it, "
+                "but takes an extra minute, so you choose! Add more for a stronger "
+                "orange flavor and less for a milder taste). Stir to moisten the sugar "
+                "and then add in the orange juice. Stir until sugar is dissolved. "
+                "Then add in the vinegar and soy sauce. Stir to combine.",
+            "**THICKEN SAUCE:** In a separate small bowl, use a small whisk or fork to mix the "
+                "cornstarch and water until the mixture is completely smooth. "
+                "Pour all of this mixture into the sauce and stir. "
+                "Continue to cook the sauce until it thickens to the "
+                "consistency of syrup. Taste and adjust the sauce to personal "
+                "preference, adding more red pepper flakes for a spicier sauce "
+                "or a pinch of salt if needed.",
+            "**ENJOY:** Pour as much sauce as you'd like over the cut-up chicken pieces "
+                "(you may not want it all depending on how saucy or un-saucy "
+                "you prefer your meal). Drizzle the remaining 2 teaspoons "
+                "sesame oil on top of coated chicken. Gently toss and serve "
+                "immediately. We like to serve over cooked rice with sesame "
+                "seeds and thinly sliced green onions.",
+          ]
+        },
       ),
     ]);
   }

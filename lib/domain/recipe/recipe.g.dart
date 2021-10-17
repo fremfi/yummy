@@ -13,10 +13,11 @@ Recipe _$RecipeFromJson(Map<String, dynamic> json) => Recipe(
       description: json['description'] as String,
       prepTimeMinutes: json['prepTimeMinutes'] as int,
       cookTimeMinutes: json['cookTimeMinutes'] as int,
-      servings: json['servings'] as int,
-      instructions: (json['instructions'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      servings: json['servings'] as String,
+      instructions: (json['instructions'] as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry(k, (e as List<dynamic>).map((e) => e as String).toList()),
+      ),
       ingredients: (json['ingredients'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
