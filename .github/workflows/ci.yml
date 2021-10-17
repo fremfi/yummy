@@ -24,7 +24,7 @@ jobs:
       - name: Run tests
         run: flutter analyze .
       - name: Build ios
-        run: flutter build ios --release --no-codesign --verbose
+        run: flutter build ios --flavor=dev  --debug --no-codesign --verbose
   build_android:
     name: build android
     runs-on: macos-11
@@ -47,4 +47,4 @@ jobs:
       - name: Run tests
         run: flutter analyze .
       - name: Build android
-        run: flutter build apk --release --verbose
+        run: flutter build apk --flavor=dev  --debug --verbose
